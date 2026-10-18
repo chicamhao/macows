@@ -16,6 +16,9 @@ public sealed class AppSettings
     public bool Enabled { get; set; } = true;
     public bool UseLeftAlt { get; set; } = true;
     public bool UseRightAlt { get; set; } = true;
+    // The ⌘ (Win) key can act as Cmd too, for Mac keyboards / Win↔Alt-swapped layouts.
+    public bool UseLeftWin { get; set; } = true;
+    public bool UseRightWin { get; set; } = true;
     public AppTheme Theme { get; set; } = AppTheme.System;
 
     /// <summary>Don't remap keys that other software (e.g. PowerToys) injects rather than the physical keyboard.</summary>
@@ -91,7 +94,7 @@ public sealed class AppSettings
         bool ctrlClick = IsEnabled(ShortcutCatalog.CtrlClick);
         bool ctrlScroll = IsEnabled(ShortcutCatalog.CtrlScroll);
 
-        return new RemapConfig(Enabled, UseLeftAlt, UseRightAlt, ctrlClick, ctrlScroll, map, excluded, IgnoreInjectedKeys);
+        return new RemapConfig(Enabled, UseLeftAlt, UseRightAlt, UseLeftWin, UseRightWin, ctrlClick, ctrlScroll, map, excluded, IgnoreInjectedKeys);
     }
 }
 
