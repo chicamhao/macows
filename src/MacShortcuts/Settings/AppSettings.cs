@@ -17,8 +17,9 @@ public sealed class AppSettings
     public bool UseLeftAlt { get; set; } = true;
     public bool UseRightAlt { get; set; } = true;
     // The ⌘ (Win) key can act as Cmd too, for Mac keyboards / Win↔Alt-swapped layouts.
-    public bool UseLeftWin { get; set; } = true;
-    public bool UseRightWin { get; set; } = true;
+    // Off by default so the Win key keeps its Windows shortcuts unless the user turns it on.
+    public bool UseLeftWin { get; set; } = false;
+    public bool UseRightWin { get; set; } = false;
     public AppTheme Theme { get; set; } = AppTheme.System;
 
     /// <summary>Don't remap keys that other software (e.g. PowerToys) injects rather than the physical keyboard.</summary>

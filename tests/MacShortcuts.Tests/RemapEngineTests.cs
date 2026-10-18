@@ -148,6 +148,7 @@ public class RemapEngineTests
     [Fact]
     public void WinAsCmd_AltC_SendsCtrlC()
     {
+        Configure(new AppSettings { UseLeftWin = true });
         Press(VK_LWIN);
         Assert.True(Press(C));
         AssertSent([KeyDown(Mask), KeyUp(Mask), KeyUp(VK_LWIN), KeyDown(VK_LCONTROL), KeyDown(C), KeyUp(C), KeyUp(VK_LCONTROL)]);
@@ -170,6 +171,7 @@ public class RemapEngineTests
     [Fact]
     public void WinAsCmd_ReinjectsWinForUnmappedKeyAfterShortcut()
     {
+        Configure(new AppSettings { UseLeftWin = true });
         Press(VK_LWIN);
         Tap(C);
         _system.Sent.Clear();
@@ -183,6 +185,7 @@ public class RemapEngineTests
     [Fact]
     public void WinAsCmd_TabOpensSwitcher()
     {
+        Configure(new AppSettings { UseLeftWin = true });
         Press(VK_LWIN);
         Assert.True(Press(Tab));
         AssertSent([KeyDown(Mask), KeyUp(Mask), KeyUp(VK_LWIN), KeyDown(VK_LMENU), KeyDown(Tab), KeyUp(Tab)]);
@@ -194,6 +197,7 @@ public class RemapEngineTests
     [Fact]
     public void WinAsCmd_WinLeft_ActsAsHomeNotWordJump()
     {
+        Configure(new AppSettings { UseLeftWin = true });
         Press(VK_LWIN);
         Assert.True(Press(Left)); // ⌘+Left -> Home, like Alt+Left, not the Win+Left word jump.
         AssertSent([KeyDown(Mask), KeyUp(Mask), KeyUp(VK_LWIN), KeyDown(Home), KeyUp(Home)]);
@@ -202,6 +206,7 @@ public class RemapEngineTests
     [Fact]
     public void WinAsCmd_RightWin_RemapsToo()
     {
+        Configure(new AppSettings { UseRightWin = true });
         Press(VK_RWIN);
         Assert.True(Press(C));
         AssertSent([KeyDown(Mask), KeyUp(Mask), KeyUp(VK_RWIN), KeyDown(VK_LCONTROL), KeyDown(C), KeyUp(C), KeyUp(VK_LCONTROL)]);

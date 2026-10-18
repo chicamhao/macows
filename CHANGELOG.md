@@ -6,7 +6,7 @@ Add user-facing changes under **Unreleased** as you go. `tools/release.ps1` move
 
 ## [Unreleased]
 
-\- The Win key can also act as ⌘ Cmd (left and right, toggleable in Settings), for Mac keyboards or keyboards where ⌘ sends Win — `Win+Tab` opens the app switcher like `Alt+Tab`
+\- The Win key can also act as ⌘ Cmd (left and right, toggleable in Settings), for Mac keyboards or keyboards where ⌘ sends Win — `Win+Tab` opens the app switcher like `Alt+Tab`. Off by default, so the Win key keeps its Windows shortcuts until enabled
 
 \- Add a Custom page for recording your own shortcuts (any mix of Alt, Ctrl and Win + key → any key combination)
 
